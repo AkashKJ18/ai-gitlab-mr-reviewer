@@ -7,7 +7,7 @@ const headers = { 'Private-Token': GITLAB_TOKEN };
 
 async function getMergeRequestDiff(mrId) {
 
-    const res = await axios.get(`${BASE_URL}/merge_requests/${mrId}/changes`, { headers });
+    const res = await axios.get(`${process.env.BASE_URL}/merge_requests/${mrId}/changes`, { headers });
 
     return res.data.changes.map(change => ({
         file: change.new_path,
